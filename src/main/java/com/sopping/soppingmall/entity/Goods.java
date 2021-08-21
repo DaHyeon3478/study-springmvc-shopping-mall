@@ -11,8 +11,8 @@ import javax.persistence.Id;
 public class Goods {
     @Id @GeneratedValue
     private String pk;
-    private String user_fk;                 //사용자fk 수정해야함 User userfk;
-    private String categories_fk;           //카테고리fk
+    private Users user_fk;                 //사용자fk
+    private Category categories_fk;         //카테고리fk
     private String goods_name;              //상품명
     private String unit_price;              //단가
     private String stock_count;             //재고수량

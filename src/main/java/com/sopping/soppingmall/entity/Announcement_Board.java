@@ -8,12 +8,12 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-public class announcement_boards {
+public class Announcement_Board {
     @Id @GeneratedValue
     private String pk;
-    private String user_fk;                 //유저fk
-    private String categories_fk;           //카테고리fk
-    private String wring_date;              //상품fk
+    private Users user_fk;                 //유저fk
+    private Category categories_fk;           //카테고리fk
+    private Goods wring_date;              //상품fk
     private String ip;                      //작성일자
     private String read_count;              //ip
     private String recommendation_count;    //읽은수
