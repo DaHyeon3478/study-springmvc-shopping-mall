@@ -25,7 +25,6 @@ public class Order {
     private String re_make;                 //비고
     private String invoice_number;          //송장번호
     private String arrival_home;            //배송완료
-    @Column(length = 1) //내용길이
-    private String delete;              //삭제
+    private String delete;                  //삭제
 
 }
