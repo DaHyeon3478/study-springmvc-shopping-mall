@@ -2,16 +2,19 @@ package com.sopping.soppingmall.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.sql.Blob;
 
 @Entity
 @Data
 public class Goods_Photos {
-    @Id
-    @GeneratedValue
-    private String pk;
+    //상품사진
+    @Id @GeneratedValue
+    private Long pk;
+    @ManyToOne @JoinColumn(name = "pk")
     private Goods goods_fk;
-    private String photo;
+    @Lob
+    private Blob photo;
+    @Column(length = 1) //내용길이
+    private String delete;              //삭제
 }

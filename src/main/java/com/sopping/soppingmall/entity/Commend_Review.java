@@ -3,21 +3,27 @@ package com.sopping.soppingmall.entity;
 import jdk.jfr.Enabled;
 import lombok.Data;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.sql.Blob;
+import java.time.LocalDateTime;
 
 @Enabled
 @Data
 public class Commend_Review {
-    //댓글
+    //리뷰 댓글
     @Id
     @GeneratedValue
-    private String pk;
-    private Review_Board re_fk;
-    private Users User_fk;
-    private String content;
+    private Long pk;
+    @ManyToOne @JoinColumn(name = "pk")
+    private Review_Board re_fk;         //리뷰게시판
+    @ManyToOne @JoinColumn(name = "pk")
+    private Users User_fk;              //유저
+    private String content;             //내용
     private String ip;
-    private String writing_date;
-    private String file;
+    private LocalDateTime writing_date; //날짜
+    @Lob
+    private Blob file;
+    @Column(length = 1) //내용길이
+    private String delete;              //삭제
 
 }
