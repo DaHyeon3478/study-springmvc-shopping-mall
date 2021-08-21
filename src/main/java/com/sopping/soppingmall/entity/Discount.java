@@ -7,11 +7,12 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
+@Table(name = "discount")
 public class Discount {
     //할인
-    @Id @GeneratedValue
-    private Long pk;
-    @ManyToOne @JoinColumn(name = "pk")
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long discount_pk;
+    @ManyToOne @JoinColumn(name = "discount_goods_fk")
     private Goods goods_fk;              //상품
     private LocalDateTime start_date;   //시작일
     private LocalDateTime and_date;     //종료일

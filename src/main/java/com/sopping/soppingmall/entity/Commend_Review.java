@@ -9,14 +9,14 @@ import java.time.LocalDateTime;
 
 @Enabled
 @Data
+@Table(name = "commend_review")
 public class Commend_Review {
     //리뷰 댓글
-    @Id
-    @GeneratedValue
-    private Long pk;
-    @ManyToOne @JoinColumn(name = "pk")
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long commend_re_pk;
+    @ManyToOne @JoinColumn(name = "commend_re_re_board_fk")
     private Review_Board re_fk;         //리뷰게시판
-    @ManyToOne @JoinColumn(name = "pk")
+    @ManyToOne @JoinColumn(name = "commend_re_user_fk")
     private Users User_fk;              //유저
     private String content;             //내용
     private String ip;

@@ -8,14 +8,15 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
+@Table(name = "announcement_board")
 public class Announcement_Board {
     //공지게시판
-    @Id @GeneratedValue
-    private Long pk;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long ann_pk;
 
-    @ManyToOne @JoinColumn(name = "pk")
+    @ManyToOne @JoinColumn(name = "annBoard_user_fk")
     private Users user_fk;                 //유저fk
-    @ManyToOne @JoinColumn(name = "pk")
+    @ManyToOne @JoinColumn(name = "annBoard_categories_fk")
     private Category categories_fk;         //카테고리fk
     private String title;                   //제목
     @Column(length = 1000) //내용길이

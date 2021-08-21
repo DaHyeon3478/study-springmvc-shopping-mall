@@ -7,11 +7,12 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
+@Table(name = "pay")
 public class Pay {
     //결제
-    @Id @GeneratedValue
-    private Long pk;
-    @ManyToOne @JoinColumn(name = "pk")
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long pay_pk;
+    @ManyToOne @JoinColumn(name = "pay_discount_fk")
     private Discount discount_fk;       //할인
     private String code;                //결제번호
     private String way;                 //결제방법

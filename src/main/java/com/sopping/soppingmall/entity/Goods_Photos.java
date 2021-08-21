@@ -7,11 +7,12 @@ import java.sql.Blob;
 
 @Entity
 @Data
+@Table(name = "goods_photos")
 public class Goods_Photos {
     //상품사진
-    @Id @GeneratedValue
-    private Long pk;
-    @ManyToOne @JoinColumn(name = "pk")
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long goods_photos_pk;
+    @ManyToOne @JoinColumn(name = "goods_ph_goods_fk")
     private Goods goods_fk;
     @Lob
     private Blob photo;

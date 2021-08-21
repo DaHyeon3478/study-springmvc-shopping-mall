@@ -7,9 +7,10 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
-@Table(name = "users")
+@Table(name = "user_Data_on_off")
 public class User_Data_on_off {
-    //회원가입시 입력받을 내용용    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //회원가입시 입력받을 내용용
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long pk;
     //private LocalDateTime writing_date; //설정일
     @Column(length = 1) //내용길이

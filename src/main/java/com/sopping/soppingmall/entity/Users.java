@@ -4,22 +4,28 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
-@Table(name = "users") //샘플테이블
+@Table(name = "users")
 public class Users {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long pk;
+    private Long user_pk;
     private String id;
     private String pw;
+
+    //양방향
+    @OneToMany(mappedBy = "order_pk")
+    private List<Order> orders = new ArrayList<>();
 
     private String non_user;             //비회원
 
     //회원가입은 fk할 필요없을 꺼같음.
     // private User_Data_on_off Sign_Up_fk;
-    @ManyToOne @JoinColumn(name = "pk")
+    @ManyToOne @JoinColumn(name = "user_rank_fk")
     private Rank rank_fk;               //등급
     private String address;              //주소
     private String Detailed_Address;    //상세주소

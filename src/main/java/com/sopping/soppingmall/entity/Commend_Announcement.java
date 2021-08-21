@@ -8,13 +8,14 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
+@Table(name = "commend_announcement")
 public class Commend_Announcement {
     //공지 댓글
-    @Id @GeneratedValue
-    private Long pk;
-    @ManyToOne @JoinColumn(name = "pk")
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long commend_ann_pk;
+    @ManyToOne @JoinColumn(name = "commend_ann_ann_fk")
     private Announcement_Board announcement_fk; //게시판
-    @ManyToOne @JoinColumn(name = "pk")
+    @ManyToOne @JoinColumn(name = "commend_ann_user_fk")
     private Users user_fk;                      //유저
     private String contents;                    //내용
     private String ip;                          //

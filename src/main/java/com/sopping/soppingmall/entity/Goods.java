@@ -8,13 +8,14 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
+@Table(name = "goods")
 public class Goods {
     //상품
-    @Id @GeneratedValue
-    private Long pk;
-    @ManyToOne @JoinColumn(name = "pk")
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long goods_pk;
+    @ManyToOne @JoinColumn(name = "goods_user_fk")
     private Users user_fk;                 //사용자fk
-    @ManyToOne @JoinColumn(name = "pk")
+    @ManyToOne @JoinColumn(name = "goods_category_fk")
     private Category categories_fk;        //카테고리fk
     private String goods_name;             //상품명
     private Long unit_price;              //단가
