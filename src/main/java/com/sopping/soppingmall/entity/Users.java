@@ -15,7 +15,10 @@ public class Users {
     private String pw;
 
     private String non_user;             //비회원
-    private User_Data_on_off Sign_Up_fk;  //회원가입
+
+    //회원가입은 fk할 필요없을 꺼같음.
+    // private User_Data_on_off Sign_Up_fk;
+
     private Rank rank_fk;               //등급
     private String address;              //주소
     private String Detailed_Address;    //상세주소

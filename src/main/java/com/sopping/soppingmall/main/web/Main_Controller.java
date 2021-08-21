@@ -1,15 +1,16 @@
 package com.sopping.soppingmall.main.web;
 
 import com.sopping.soppingmall.main.service.Main_Service;
+import com.sopping.soppingmall.main.service.Main_ServiceImpl;
 import com.sopping.soppingmall.entity.Users;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -19,6 +20,7 @@ import java.util.List;
 @Slf4j
 public class Main_Controller {
 
+    @Autowired
     private final Main_Service main_service;
 
     //로그인후 메인 select
