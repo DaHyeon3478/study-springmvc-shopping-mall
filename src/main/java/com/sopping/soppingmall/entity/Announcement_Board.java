@@ -18,9 +18,7 @@ public class Announcement_Board {
 
     @ManyToOne @JoinColumn(name = "user_fk", foreignKey = @ForeignKey(name = "ann_board_user_fk"))
     private Users user_fk;                 //유저 fk
-    
-    //DB예약어 사용시 애러
-    //name 생략시 필드명_pk명 , referencedColumnName 기본 pk외 다른 필드 체택시 사용, foreignKey fk 제약조건 이름
+
     @ManyToOne @JoinColumn(foreignKey = @ForeignKey(name = "ann_board_category_fk"), name = "category_fk", referencedColumnName = "category_pk")
     private Category category_fk;         //카테고리 fk
     private String title;                   //제목
