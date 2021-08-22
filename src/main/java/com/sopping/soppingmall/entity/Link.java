@@ -9,17 +9,17 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "rank")
-public class Rank {
+public class Link {
     //등급
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long rank_pk;
+    private Long link_pk;
 
     //양방향
     @OneToMany(mappedBy = "user_pk")
     private List<Users> usersLsit = new ArrayList<>();
 
-    private String rank_name;   //등급명
+    private String link_name;   //등급명
 
     @Column(length = 1) //내용길이
-    private String rank_delete;      //등급삭제
+    private String link_delete;      //등급삭제
 }

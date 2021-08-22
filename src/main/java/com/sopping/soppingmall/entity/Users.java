@@ -47,8 +47,10 @@ public class Users {
 
     //회원가입은 fk할 필요없을 꺼같음.
     // private User_Data_on_off Sign_Up_fk;
-    @ManyToOne @JoinColumn(name = "rank_fk", foreignKey = @ForeignKey(name = "user_rank_fk"))
-    private Rank rank_fk;               //등급
+
+    @ManyToOne @JoinColumn(name = "link_fk", foreignKey = @ForeignKey(name = "user_link_fk"))
+    private Link link_fk;               //등급
+
     private String address;              //주소
     private String Detailed_Address;    //상세주소
     private String Zip_code;            //우편번호
