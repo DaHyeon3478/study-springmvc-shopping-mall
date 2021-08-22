@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(name = "rank")
+@Table(name = "link")
 public class Link {
     //등급
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
