@@ -17,15 +17,37 @@ public class Users {
     private String id;
     private String pw;
 
-    //양방향
+    //양방향 참조만 필드명
     @OneToMany(mappedBy = "order_pk")
     private List<Order> orders = new ArrayList<>();
+    @OneToMany(mappedBy = "ann_pk")
+    private List<Announcement_Board> ann_board = new ArrayList<>();
+    @OneToMany(mappedBy = "call_pk")
+    private List<Call_dibs> call_dibs = new ArrayList<>();
+    @OneToMany(mappedBy = "commend_ann_pk")
+    private List<Commend_Announcement> commend_ann = new ArrayList<>();
+    @OneToMany(mappedBy = "Commend_qa_pk")
+    private List<Commend_QA> commend_qa = new ArrayList<>();
+    @OneToMany(mappedBy = "commend_re_pk")
+    private List<Commend_Review> commend_reviews = new ArrayList<>();
+    @OneToMany(mappedBy = "goods_pk")
+    private List<Goods> goods = new ArrayList<>();
+    @OneToMany(mappedBy = "order_pk")
+    private List<Order> order = new ArrayList<>();
+    @OneToMany(mappedBy = "qa_board_pk")
+    private List<QA_board> qa_boards = new ArrayList<>();
+    @OneToMany(mappedBy = "review_board_pk")
+    private List<Review_Board> re_boards = new ArrayList<>();
+    @OneToMany(mappedBy = "shopping_basket_pk")
+    private List<Shopping_Basket> shopping_baskets = new ArrayList<>();
+    @OneToMany(mappedBy = "log_pk")
+    private List<User_Log> user_logs = new ArrayList<>();
 
     private String non_user;             //비회원
 
     //회원가입은 fk할 필요없을 꺼같음.
     // private User_Data_on_off Sign_Up_fk;
-    @ManyToOne @JoinColumn(name = "user_rank_fk")
+    @ManyToOne @JoinColumn(name = "rank_fk", foreignKey = @ForeignKey(name = "user_rank_fk"))
     private Rank rank_fk;               //등급
     private String address;              //주소
     private String Detailed_Address;    //상세주소
@@ -48,7 +70,7 @@ public class Users {
     private String interest_2;          //관심2
     private String interest_3;          //관심3
     @Column(length = 1) //내용길이
-    private String delete;              //삭제
+    private String user_delete;              //삭제
 
     private LocalDateTime writing_date; //가입일+
 

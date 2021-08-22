@@ -13,9 +13,9 @@ public class Commend_Announcement {
     //공지 댓글
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long commend_ann_pk;
-    @ManyToOne @JoinColumn(name = "commend_ann_ann_fk")
+    @ManyToOne @JoinColumn(name = "announcement_fk", foreignKey = @ForeignKey(name = "commend_ann_ann_board_fk"))
     private Announcement_Board announcement_fk; //게시판
-    @ManyToOne @JoinColumn(name = "commend_ann_user_fk")
+    @ManyToOne @JoinColumn(name = "user_fk", foreignKey = @ForeignKey(name = "commend_ann_user_fk"))
     private Users user_fk;                      //유저
     private String contents;                    //내용
     private String ip;                          //
@@ -23,5 +23,5 @@ public class Commend_Announcement {
     @Lob
     private Blob file;                          //등록한 사진등
     @Column(length = 1) //내용길이
-    private String delete;              //삭제
+    private String commend_ann_delete;              //삭제
 }

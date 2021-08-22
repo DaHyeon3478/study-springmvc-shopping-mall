@@ -11,8 +11,8 @@ import java.time.LocalDateTime;
 public class User_Log {
     //접속기록
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long pk;
-    @ManyToOne @JoinColumn(name = "log_user_fk")
+    private Long log_pk;
+    @ManyToOne @JoinColumn(name = "user_fk", foreignKey = @ForeignKey(name = "user_log_user_fk"))
     private Users user_fk;                  //접속유저
     private LocalDateTime login_time;       //접속시간
 

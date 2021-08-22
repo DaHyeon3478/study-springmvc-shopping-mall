@@ -10,7 +10,7 @@ spring:
     password: 3478
   jpa:
     hibernate:
-      ddl-auto: create #none #jpa테이블자동생성
+      ddl-auto: create #update #create #none #jpa테이블자동생성
     properties:
       hibernate:
         show-sql: true

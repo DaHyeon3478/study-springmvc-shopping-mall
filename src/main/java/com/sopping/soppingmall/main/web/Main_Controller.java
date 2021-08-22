@@ -22,7 +22,7 @@ public class Main_Controller {
 
     @Autowired
     private final Main_Service main_service;
-
+/*
     //로그인후 메인 select
     @PostMapping("/main_home")
     public String Main_home (Model model ){
@@ -44,5 +44,5 @@ public class Main_Controller {
         //return "/";
         return "redirect:/";
     }
-
+*/
 }
