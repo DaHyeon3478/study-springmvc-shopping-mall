@@ -19,7 +19,7 @@ public class Discount {
 
     //양방향
     @OneToMany(mappedBy = "pay_pk")
-    private List<Pay> payLsit = new ArrayList<>();
+    private List<Pay> payList = new ArrayList<>();
 
     private LocalDateTime start_date;   //시작일
     private LocalDateTime and_date;     //종료일
