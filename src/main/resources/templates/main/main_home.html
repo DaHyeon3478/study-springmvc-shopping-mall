@@ -1,12 +1,383 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
+<html lang="en kr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="author" content="doginy">
+    <meta name="description" content="ontheshop">
+    <meta name="keywords" content="dailylook, girlish, casual, one-piece, blouse, skirt">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>여성의류 쇼핑몰 - 온더샵</title>
+
+    <!-- style -->
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/icon/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" href="/icon/favicon-152.png">
+    <link rel="icon" href="/icon/favicon-64.png">
+    <link rel="icon" href="/icon/favicon-16.png" sizes="16x16">
+    <link rel="icon" href="/icon/favicon-32.png" sizes="32x32">
+    <link rel="icon" href="/icon/favicon-48.png" sizes="48x48">
+    <link rel="icon" href="/icon/favicon-64.png" sizes="64x64">
+    <link rel="icon" href="/icon/favicon-128.png" sizes="128x128">
+
+    <!-- font icon -->
+    <script src="https://kit.fontawesome.com/c7968b1a80.js" crossorigin="anonymous"></script>
+
+    <!-- JQuery -->
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+
+            //우측메뉴
+            $('#visual .rightNav').css('display','none');
+            $('#header .headerLogo').mouseover(function(){
+                $('#visual .rightNav').css('display','block');
+            });
+
+            //4단배너
+            var $duration = 200,
+                $fourimg = $('#visual .bannerFour li');
+
+            $fourimg.stop().mouseover(function(){
+                $(this).stop().animate({opacity:0.7},$duration);
+            })
+            .mouseout(function(){
+                $(this).stop().animate({opacity:1},$duration);
+            });
+        });
+    </script>
+
+
+    <!-- HTML5shiv ie6~8 -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script type="text/javascript">
+			alert("지원하지 않는 브라우저입니다. 최신 브라우저로 업데이트해주세요!");
+		</script>
+    <![endif]-->
 </head>
 <body>
-
+<!-- --- header box -------------------- -->
+<header id="header">
+    <!--//회원가입 로그인 -->
+    <nav class="headerTop">
+        <ul>
+            <li><a href="">회원가입</a></li>
+            <li><a href="">로그인</a></li>
+            <li><a href="">장바구니</a></li>
+            <li><a href="">마이페이지</a></li>
+            <li><a href="">바로가기</a></li>
+        </ul>
+    </nav>
+    <!--//로고 -->
+    <h1 class="headerLogo"><a href="/index.html">ONTHESHOP</a></h1>
+    <!--//메인메뉴-->
+    <nav class="headerNav">
+        <!--//삼선-->
+        <div class="threeLine"><span class="fas fa-bars"  style="cursor: pointer"><a href=""></a></span></div>
+        <ul>
+            <li><a href="">NEW</a></li>
+            <li><a href="">BEST 10</a></li>
+            <li><a href="">OUTER</a></li>
+            <li><a href="">DRESS</a></li>
+            <li><a href="">TOP</a></li>
+            <li><a href="">BOTTOM</a></li>
+            <li><a href="">SHOES</a></li>
+            <li><a href="">SALE</a></li>
+        </ul>
+        <div class="headerSearch">
+            <img src="/img/search.jpg" alt="검색이미지">
+            <!--<form action="" method="post" name="search">
+                <fieldset class="searchForm">
+                    <legend>상품검색폼</legend>
+                    <input name="search" class="searchWord">
+                    <a href="javascript:search submit();" class="fas fa-search"></a>
+                </fieldset>
+            </form>-->
+        </div>
+        <!-- 모바일용 검색버튼 -->
+        <div class="headerSearchMobile"><a href=""><span class="fas fa-search"></span></a></div>
+    </nav>
+</header>
+<!-- --- visual box --------------------- -->
+<section id="visual">
+    <!--//메인 슬라이드 배너 -->
+    <section class="bannerSlide">
+        <img src="/img/slide.jpg" alt="슬라이드 이미지">
+    </section>
+    <!--//4단 배너-->
+    <section class="bannerFour">
+        <ul>
+            <li><a href=""><img src="/img/banner01.jpg" alt="1단배너"></a></li>
+            <li><a href=""><img src="/img/banner02.jpg" alt="2단배너"></a></li>
+            <li><a href=""><img src="/img/banner03.jpg" alt="3단배너"></a></li>
+            <li><a href=""><img src="/img/banner04.jpg" alt="4단배너"></a></li>
+        </ul>
+    </section>
+    <!--//우측메뉴-->
+    <nav class="rightNav">
+        <ul>
+            <li>
+                <a href="#">
+                    <span class="fas fa-shopping-cart"></span>
+                    <span class="">장바구니</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="fas fa-mouse-pointer"></span>
+                    <span class="">최근본상품</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class=""></span>
+                    <span class="">채팅상담</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class=""></span>
+                    <span class="">카톡상담</span>
+                </a>
+            </li>
+            <li><a href="#"><i class="fas fa-arrow-circle-up"></i></a></li>
+            <li><a href="#"><i class="fas fa-arrow-circle-down"></i></a></li>
+        </ul>
+    </nav>
+</section>
+<!-- --- main box ---------------------- -->
+<main id="main">
+    <!--//베스트 아이템 타이틀-->
+    <h3 class="mainTitle">BEST ITEM</h3>
+    <p class="mainLine">──</p><!-- 모바일용 라인 -->
+    <!--//베스트 아이템 목록-->
+    <section class="itemList">
+        <ul>
+            <li>
+                <a href=""><img src="/img/item01.jpg" alt="이미지1"></a>
+                <p class="itemTitle">초경량 텐셀 옆밴딩 배기진(숏&기본&롱 3type)<a href=""></a></p>
+                <p class="itemSize">S(55),M(66),L(77),XL(88),2XL(99)</p>
+                <p class="itemPrice">23,900원</p>
+                <p class="itemBest">BEST</p>
+                <p class="itemReview">리뷰 : 532개</p>
+            </li>
+            <li>
+                <a href=""><img src="/img/item02.jpg" alt="이미지2"></a>
+                <p class="itemTitle">르네 린넨 카라 썸머니트<a href=""></a></p>
+                <p class="itemSize">FREE(55~77)</p>
+                <p class="itemPrice">18,900원</p>
+                <p class="itemBest">BEST</p>
+                <p class="itemReview">리뷰 : 105개</p>
+            </li>
+            <li>
+                <a href=""><img src="/img/item03.jpg" alt="이미지3"></a>
+                <p class="itemTitle">1+1 쿨 스판 이너나시<a href=""></a></p>
+                <p class="itemSize">FREE, L</p>
+                <p class="itemPrice">14,900원</p>
+                <p class="itemNew">New</p>
+                <p class="itemReview">리뷰 : 5,550개</p>
+            </li>
+            <li>
+                <a href=""><img src="/img/item04.jpg" alt="이미지4"></a>
+                <p class="itemTitle">아이스콜드 스판 일자슬랙스<a href=""></a></p>
+                <p class="itemSize">S, M, L, XL</p>
+                <p class="itemPrice">19,800원<span class="itemSalePrice">21,900원</span></p>
+                <p class="itemBest">BEST <span class="itemSale">10% SALE</span></p>
+                <p class="itemReview">리뷰 : 630개</p>
+            </li>
+            <li>
+                <a href=""><img src="/img/item05.jpg" alt="이미지5"></a>
+                <p class="itemTitle">보민 찰랑 브이넥 나시티<a href=""></a></p>
+                <p class="itemSize">FREE(55~66반)</p>
+                <p class="itemPrice">7,900원</p>
+                <p class="itemReview">리뷰 : 34개</p>
+            </li>
+            <li>
+                <a href=""><img src="/img/item06.jpg" alt="이미지6"></a>
+                <p class="itemTitle">스티아 4부 린넨팬츠<a href=""></a></p>
+                <p class="itemSize">(베스트컬러 L 추가 / ~88까지 OK!)</p>
+                <p class="itemPrice">16,900원</p>
+                <p class="itemBest">BEST</p>
+                <p class="itemReview">리뷰 : 3,511개</p>
+            </li>
+            <li>
+                <a href=""><img src="/img/item07.jpg" alt="이미지7"></a>
+                <p class="itemTitle">가볍게 썸머 와이드 밴딩슬랙스(기장 3type)<a href=""></a></p>
+                <p class="itemSize">S(55),M(66),L(77),XL(88),2XL(99)</p>
+                <p class="itemPrice">25,800원</p>
+                <p class="itemReview">리뷰 : 211개</p>
+            </li>
+            <li>
+                <a href=""><img src="/img/item08.jpg" alt="이미지8"></a>
+                <p class="itemTitle">주컨 프릴 반오픈 카라티<a href=""></a></p>
+                <p class="itemSize">FREE(55~77)</p>
+                <p class="itemPrice">18,400원<span class="itemSalePrice">22,900원</span></p>
+                <p class="itemBest">BEST <span class="itemSale">20% SALE</span></p>
+                <p class="itemReview">리뷰 : 532개</p>
+            </li>
+        </ul>
+    </section>
+    <!--//신규 아이템 타이틀-->
+    <h3 class="mainTitle">NEW ARRIVAL</h3>
+    <p class="mainLine">──</p><!-- 모바일용 라인 -->
+    <!--//신규 아이템 목록-->
+    <section class="itemList">
+        <ul>
+            <li>
+                <a href=""><img src="/img/item01.jpg" alt="이미지1"></a>
+                <p class="itemTitle">초경량 텐셀 옆밴딩 배기진(숏&기본&롱 3type)<a href=""></a></p>
+                <p class="itemSize">S(55),M(66),L(77),XL(88),2XL(99)</p>
+                <p class="itemPrice">23,900원</p>
+                <p class="itemBest">BEST</p>
+                <p class="itemReview">리뷰 : 532개</p>
+            </li>
+            <li>
+                <a href=""><img src="/img/item02.jpg" alt="이미지2"></a>
+                <p class="itemTitle">르네 린넨 카라 썸머니트<a href=""></a></p>
+                <p class="itemSize">FREE(55~77)</p>
+                <p class="itemPrice">18,900원</p>
+                <p class="itemBest">BEST</p>
+                <p class="itemReview">리뷰 : 105개</p>
+            </li>
+            <li>
+                <a href=""><img src="/img/item03.jpg" alt="이미지3"></a>
+                <p class="itemTitle">1+1 쿨 스판 이너나시<a href=""></a></p>
+                <p class="itemSize">FREE, L</p>
+                <p class="itemPrice">14,900원</p>
+                <p class="itemNew">New</p>
+                <p class="itemReview">리뷰 : 5,550개</p>
+            </li>
+            <li>
+                <a href=""><img src="/img/item04.jpg" alt="이미지4"></a>
+                <p class="itemTitle">아이스콜드 스판 일자슬랙스<a href=""></a></p>
+                <p class="itemSize">S, M, L, XL</p>
+                <p class="itemPrice">19,800원<span class="itemSalePrice">21,900원</span></p>
+                <p class="itemBest">BEST <span class="itemSale">10% SALE</span></p>
+                <p class="itemReview">리뷰 : 630개</p>
+            </li>
+            <li>
+                <a href=""><img src="/img/item05.jpg" alt="이미지5"></a>
+                <p class="itemTitle">보민 찰랑 브이넥 나시티<a href=""></a></p>
+                <p class="itemSize">FREE(55~66반)</p>
+                <p class="itemPrice">7,900원</p>
+                <p class="itemReview">리뷰 : 34개</p>
+            </li>
+            <li>
+                <a href=""><img src="/img/item06.jpg" alt="이미지6"></a>
+                <p class="itemTitle">스티아 4부 린넨팬츠<a href=""></a></p>
+                <p class="itemSize">(베스트컬러 L 추가 / ~88까지 OK!)</p>
+                <p class="itemPrice">16,900원</p>
+                <p class="itemBest">BEST</p>
+                <p class="itemReview">리뷰 : 3,511개</p>
+            </li>
+            <li>
+                <a href=""><img src="/img/item07.jpg" alt="이미지7"></a>
+                <p class="itemTitle">가볍게 썸머 와이드 밴딩슬랙스(기장 3type)<a href=""></a></p>
+                <p class="itemSize">S(55),M(66),L(77),XL(88),2XL(99)</p>
+                <p class="itemPrice">25,800원</p>
+                <p class="itemReview">리뷰 : 211개</p>
+            </li>
+            <li>
+                <a href=""><img src="/img/item08.jpg" alt="이미지8"></a>
+                <p class="itemTitle">주컨 프릴 반오픈 카라티<a href=""></a></p>
+                <p class="itemSize">FREE(55~77)</p>
+                <p class="itemPrice">18,400원<span class="itemSalePrice">22,900원</span></p>
+                <p class="itemBest">BEST <span class="itemSale">20% SALE</span></p>
+                <p class="itemReview">리뷰 : 532개</p>
+            </li>
+        </ul>
+    </section>
+</main>
+<!-- --- foter box ---------------------- -->
+<footer id="footer">
+    <section class="footerTop">
+        <div class="footerAbout">
+            <p class="footerTitle">ABOUT US</p>
+            <p class="footerLine">──</p>
+            <p>COMPANY : 주식회사 온더샵</p>
+            <p>OWNER : 홍길동</p>
+            <p>BUSINESS LICENSE : 180-8108018 사업자정보확인</p>
+            <p>MAIL ORDER LICENSE : 제2021-대구-0152호</p>
+            <p>ADRESS : 대구시 중구 삼삼동 삼삼빌딩 2층 온더샵</p>
+            <p>MAIL : ontheshop@ontheshop.co.kr</p>
+        </div>
+        <section class="footerTopMiddle">
+            <div class="footerCustom">
+                <p class="footerTitle">CUSTOMER CENTER</p>
+                <p class="footerLine">──</p>
+                <p class="footerTel">1644 - 7979</p>
+                <p class="footerFax">fax : 053-4533-7979</p>
+                <p>MONDAY-FRIDAY 10:00 - 17:00</p>
+                <p>LUNCH 13:00 - 14:00</p>
+                <p>WEEKEND, HOLIDAY OFF</p>
+                <p class="footerTalk">
+                    <a href=""><img src="/img/chat.jpg" alt="채팅상담"></a>
+                    <a href=""><img src="/img/kakao.jpg" alt="카톡상담"></a>
+                </p>
+            </div>
+            <div class="footerBanking">
+                <p class="footerTitle">BANKING INFO</p>
+                <p class="footerLine">──</p>
+                <p>KB국민 : 101010 - 55 - 821821</p>
+                <p>NH농협 : 101010 - 55 - 821821</p>
+                <p>우리: 101010 - 55 - 821821</p>
+                <p>신한 : 101010 - 55 - 821821</p>
+                <p>예금주 : (주)온더샵</p>
+                <p>　</p>
+                <section class="footerDeli">
+                    <p class="footerTitle">DELIVERY</p>
+                    <p class="footerLine">──</p>
+                    <p class="footerDeliTel">CJ 대한통운 고객센터 1588 - 1255</p>
+                </section>
+            </div>
+        </section>
+        <!-- 모바일용 택배안내 -->
+        <section class="footerDeliMobile">
+            <p class="footerDeliTel">DELIVERY : CJ 대한통운 고객센터 1588 - 1255</p>
+        </section>
+        <!-- 모바일용 상담버튼 -->
+        <section class="footerTopTalk">
+            <p><a href="">채팅상담</a></p>
+            <p><a href="">카톡상담</a></p>
+        </section>
+        <div class="footerBoard">
+            <p class="footerTitle">BOARD</p>
+            <p class="footerLine">──</p>
+            <p><a href="">공지 & 이벤트</a></p>
+            <p><a href="">상품문의</a></p>
+            <p><a href="">상품리뷰</a></p>
+            <p><a href="">FAQ</a></p>
+        </div>
+        <!-- 모바일용 버튼모음 -->
+        <div class="footerBoardMobile">
+            <ul>
+                <li><a href=""><img src="/img/footer_board_01.jpg" alt="공지이벤트"></a></li>
+                <li><a href=""><img src="/img/footer_board_02.jpg" alt="상품문의"></a></li>
+                <li><a href=""><img src="/img/footer_board_03.jpg" alt="상품리뷰"></a></li>
+                <li><a href=""><img src="/img/footer_board_04.jpg" alt="FAQ"></a></li>
+                <li><a href=""><img src="/img/footer_board_05.jpg" alt="장바구니"></a></li>
+                <li><a href=""><img src="/img/footer_board_06.jpg" alt="최근본상품"></a></li>
+                <li><a href=""><img src="/img/footer_board_07.jpg" alt="주문조회"></a></li>
+                <li><a href=""><img src="/img/footer_board_08.jpg" alt="마이페이지"></a></li>
+            </ul>
+        </div>
+    </section>
+    <section class="footerBottom">
+        <nav class="footerNav">
+            <ul>
+                <li><a href="">회사소개</a></li>
+                <li><a href="">이용약관</a></li>
+                <li><a href="">개인정보취급방침</a></li>
+                <li><a href="">이용안내</a></li>
+            </ul>
+        </nav>
+        <p class="footerCopy">COPYRIGHT ⓒ <b>ONTHESHOP</b> ALL RIGHT RESERVED.</p>
+    </section>
+</footer>
+< !--
 <table>
     <tr>
         <td>아이디</td>
@@ -14,9 +385,9 @@
     </tr>
     <tr th:each="user : ${userVO}">
         <td th:text="${user.id}"></td>
-    <td th:text="${user.pw}"></td>
+        <td th:text="${user.pw}"></td>
     </tr>
 </table>
-
+-->
 </body>
 </html>

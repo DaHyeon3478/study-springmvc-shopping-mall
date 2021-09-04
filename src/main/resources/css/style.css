@@ -1,0 +1,234 @@
+/* How Design by Doginy 210814 */
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;700&display=swap');
+body * {
+	color: #222222; 
+	font-family: 'Noto Sans KR', sans-serif;
+}
+a:hover {color:#ff7373; text-decoration:none}
+img {width:100%;}
+
+#header .headerTop {width:280px; margin-top: 20px; margin-left:auto; margin-right:2%;}
+#header .headerTop ul {width: 280px; display:flex;}
+#header .headerTop li {flex-grow: 1; font-size: 9pt; letter-spacing: 0.5pt;}
+
+#header .headerLogo {
+	height:100px; 
+	font-size: 23pt; 
+	font-weight:700; 
+	letter-spacing: 4pt; 
+	text-align:center; 
+	line-height:200%;
+}
+
+#header .headerNav {height:40px; display:flex;}
+#header .headerNav .threeLine {width:60px; text-align:center; margin-right:70px; font-size: 16pt;}
+#header .headerNav ul {width: 100%; display:flex;}
+#header .headerNav li {flex-grow: 1; font-size: 10pt;}
+#header .headerNav .headerSearch {margin-right:50px;}
+#header .headerNav .headerSearchMobile {display:none;}
+/*
+#header .headerNav .headerSearch {margin-right:50px; width: 123px; height: 30px; border-bottom: 1px solid #000000; margin-top: 5px;}
+#header .headerNav .headerSearch .searchForm {display:flex;}
+#header .headerNav .headerSearch .searchWord {
+	border:0;
+	height:20px;
+	width: 123px;
+	background: #ffffff;
+	color: #000000;
+	margin-top: 10px;
+	font-size: 10pt;
+}
+*/
+
+#visual .bannerFour {margin-top: 70px; margin-bottom: 70px;}
+#visual .bannerFour ul {width: 100%; display:flex;}
+#visual .bannerFour li {flex-grow: 1; margin-left: 1%; margin-right: 1%;}
+#visual .bannerFour li:nth-child(1) {margin-left: 2%;}
+#visual .bannerFour li:nth-child(4) {margin-right: 2%;}
+
+#visual .rightNav ul {
+	background: #ffffff70;
+    position: fixed;
+    right: 50px;
+    bottom: 70px;
+	width: 120px;
+	height: 600px;
+	border: 1px solid #dfdfdf;
+}
+#visual .rightNav li {flex-basis: 100px;}
+
+#main .mainTitle {
+	height: 100px;
+	margin-top: 100px;
+	font-size: 12pt;
+	font-weight:700;
+	letter-spacing: 1pt;
+	text-align:center;
+}
+#main .mainLine {display:none;}
+
+#main .itemList ul {width: 100%; display:flex; flex-wrap: wrap;}
+#main .itemList li {flex-grow: 1; margin: 1%;}
+#main .itemList li p {padding-top: 12px;}
+#main .itemList li .itemTitle {margin-top: 10px;}
+#main .itemList li .itemSize {color:#ff7373; font-size: 10pt;}
+#main .itemList li .itemPrice {font-weight:700; font-size: 12pt;}
+#main .itemList li .itemSalePrice {text-decoration:line-through; font-weight:300; font-size: 10pt;}
+#main .itemList li .itemBest {color:#56c983; font-weight:700; font-size: 10pt;}
+#main .itemList li .itemNew {color:#ff7373; font-weight:700; font-size: 10pt;}
+#main .itemList li .itemSale {color:#ffffff; font-weight:300; font-size: 9pt; background-color:red;}
+#main .itemList li .itemReview {margin-bottom: 20px; font-size: 10pt;}
+
+#footer .footerTop {width: 100%; display:flex; border-top: 1px solid #999999;}
+#footer .footerTop div {flex-grow: 1; margin: 2%; padding-right:2%;}
+#footer .footerTop .footerAbout {border-right: 1px solid #eeeeee;}
+#footer .footerTop .footerTopMiddle {display: flex; flex-grow: 3; margin: 1.2%;}
+#footer .footerTop .footerCustom {border-right: 1px solid #eeeeee;}
+#footer .footerTop .footerCustom .footerTalk {margin-top: 20px;}
+#footer .footerTop .footerCustom .footerTalk img {width:70px; height:62px; border: 1px solid #dfdfdf;}
+#footer .footerTop .footerBanking {border-right: 1px solid #eeeeee;}
+#footer .footerTop p {font-size: 9pt; letter-spacing: 0.5pt; line-height:200%;}
+#footer .footerTop .footerTitle {font-size: 10pt; font-weight:700; line-height:230%;}
+#footer .footerTop .footerLine {height:27px;}
+#footer .footerTop .footerTel {font-size: 20pt;}
+#footer .footerTop .footerFax {font-size: 9pt; font-weight:700; line-height:270%;}
+#footer .footerTop .footerDeliTel {font-size: 9pt; font-weight:700;}
+
+#footer .footerTop .footerTopTalk {display:none;}
+#footer .footerTop .footerDeliMobile {display:none;}
+#footer .footerTop .footerBoardMobile {display:none;}
+
+#footer .footerBottom .footerNav {
+	border-top: 1px solid #eeeeee; 
+	border-bottom: 1px solid #eeeeee;
+	padding: 20px;
+}
+#footer .footerBottom .footerNav ul {width: 50%; display:flex; margin-left: auto; margin-right: auto;}
+#footer .footerBottom .footerNav li {flex-grow: 1; font-size: 9pt; letter-spacing: 0.5pt; text-align:center;}
+#footer .footerBottom .footerCopy {height:80px; padding: 50px; font-size: 9pt; letter-spacing: 0.5pt; text-align:center;}
+
+
+
+
+/* ¸ð¹ÙÀÏ 0~576 */
+@media (max-width: 576px){
+	#header .headerTop {width:100%; margin-top: 10px;}
+	#header .headerTop ul {width:100%; display:flex; padding-bottom:10px; border-bottom: 1px solid #eeeeee;}
+	#header .headerTop li {flex-grow: 1; text-align:center; border-right: 1px solid #dfdfdf;}
+	#header .headerTop li:nth-child(5) {border-right: 0px;}
+
+	#header .headerLogo {height:80px; line-height:250%; letter-spacing: 3pt;}
+
+	#header .headerNav .threeLine {
+		width:60px; 
+		text-align:center;
+		font-size: 16pt;
+		position: absolute;
+		top: 62px;
+		left: 5px;
+	}
+		#header .headerNav .headerSearchMobile {
+		display:block;
+		width:60px; 
+		text-align:center;
+		font-size: 16pt;
+		position: absolute;
+		top: 62px;
+		right: 5px;
+	}
+
+	#header .headerNav ul {width: 100%; display:flex; flex-wrap: wrap; border-top: 1px solid #eeeeee;}
+	#header .headerNav li {
+		width: 24%;
+		height: 22px;
+		text-align:center;
+		flex-grow: 1; 
+		font-size: 10pt; 
+		padding-top: 8px;
+		border-right: 1px solid #eeeeee; 
+		border-bottom: 1px solid #eeeeee;
+	}
+
+	#header .headerNav .headerSearch {display:none;}
+	#visual .rightNav {display:none;}
+
+	#visual .bannerSlide {margin-top: 23px;}
+	#visual .bannerFour {margin-top: 20px; margin-bottom: 20px;}
+
+	#main .mainTitle {
+	height: 15px;
+	margin-top: 40px;
+	font-size: 9pt;
+	letter-spacing: 1pt;
+	}
+	#main .mainLine {display:block; height:40px; text-align:center;}
+
+    #main .itemList {margin:1%;}
+	#main .itemList li {width:46%;}
+	#main .itemList li p {padding-top: 8px;}
+	#main .itemList li .itemTitle {font-size: 10pt; padding-top: 0px; line-height:160%;}
+	#main .itemList li .itemSize {font-size: 8pt;}
+	#main .itemList li .itemPrice {font-size: 10pt;}
+	#main .itemList li .itemSalePrice {font-size: 9pt;}
+	#main .itemList li .itemBest {font-size: 8pt;}
+	#main .itemList li .itemNew {font-size: 8pt;}
+	#main .itemList li .itemSale {font-size: 7pt;}
+	#main .itemList li .itemReview {font-size: 8pt;}
+
+	#footer {font-size: 8pt;}
+	#footer .footerTop {flex-direction: column; border-top: 0px;}
+	#footer .footerTop div {margin: 0px; padding-right:0px;}
+	#footer .footerTop .footerAbout {border-top: 1px solid #dfdfdf; border-right: 0px; order: 5; padding-top:15px; padding-bottom:15px;}
+	#footer .footerTop .footerTopMiddle {order: 2; display: flex;}
+	#footer .footerTop .footerCustom {border-right: 0px;}
+	#footer .footerTop .footerBanking {border-right: 0px}
+	#footer .footerTop .footerTopTalk {width:100%; display:block; order: 3; display: flex;}
+	
+	#footer .footerTop .footerBoard {display:none;}
+	#footer .footerTop .footerBoardMobile {display:block; order: 1;}
+	#footer .footerTop .footerBoardMobile ul {width: 100%; display:flex; flex-wrap: wrap; border-top: 1px solid #eeeeee;}
+    
+	#footer .footerTop .footerBoardMobile li {
+		width: 24%;
+		height: 100px;
+		text-align:center;
+		flex-grow: 1;  
+		padding-top: 15px;
+		border-right: 1px solid #eeeeee; 
+		border-bottom: 1px solid #eeeeee;
+	}
+    #footer .footerTop .footerBoardMobile img {width: 92px; height: 82px;}
+
+	#footer .footerTop .footerCustom .footerTitle {font-size: 9pt; padding-top:20px; padding-bottom:15px;}
+	#footer .footerTop .footerCustom .footerLine {display:none;}
+	#footer .footerTop .footerCustom .footerTalk {display:none;}
+	#footer .footerTop .footerCustom p {text-align:center; line-height:160%;}
+
+	#footer .footerTop .footerBanking .footerTitle {font-size: 9pt; padding:20px;}
+	#footer .footerTop .footerBanking .footerLine {display:none;}
+	#footer .footerTop .footerBanking p {text-align:center; line-height:160%;}
+
+	#footer .footerTop .footerTopTalk p {
+		text-align:center; 
+		font-weight:700;
+		padding-top:3px; 
+		padding-bottom:5px;
+		margin: 10px;
+		flex-grow: 1;
+		border: 1px solid #dfdfdf;
+	}
+	
+	#footer .footerTop .footerBanking .footerDeli  {display:none;}
+	#footer .footerTop .footerDeliMobile {display:block; order: 4; width:100%;}
+	#footer .footerTop .footerDeliMobile p {text-align:center; padding:20px; padding-top:10px;}
+
+	#footer .footerTop .footerAbout .footerTitle {display:none;}
+	#footer .footerTop .footerAbout .footerLine {display:none;}
+	#footer .footerTop .footerAbout p {text-align:center;  line-height:160%;}
+
+	#footer .footerBottom .footerNav {border: 0px; padding: 20px; background:#eeeeee;}
+	#footer .footerBottom .footerNav ul {width: 100%;}
+	#footer .footerBottom .footerNav li {flex-grow: 1; font-size: 9pt; letter-spacing: 0.5pt; text-align:center;}
+	#footer .footerBottom .footerCopy {height: 36px; margin-top: 20px; padding: 0px;}
+}
