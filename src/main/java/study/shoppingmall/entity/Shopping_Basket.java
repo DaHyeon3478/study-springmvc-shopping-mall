@@ -1,6 +1,7 @@
 package study.shoppingmall.entity;
 
 import lombok.Data;
+import lombok.Getter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
 @Table(name = "shopping_basket")
 public class Shopping_Basket {
     //장바구니
@@ -20,7 +21,7 @@ public class Shopping_Basket {
     private Users user_fk;                  //유저
 
     //양방향
-    @OneToMany(mappedBy = "order_pk")
+    @OneToMany(mappedBy = "order_pk",fetch = FetchType.LAZY)
     private List<Order> order = new ArrayList<>();
 
     private LocalDateTime writing_date;     //등록일

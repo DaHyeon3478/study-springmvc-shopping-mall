@@ -1,6 +1,7 @@
 package study.shoppingmall.entity;
 
 import lombok.Data;
+import lombok.Getter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
 @Table(name = "pay")
 public class Pay {
     //결제
@@ -18,7 +19,7 @@ public class Pay {
     private Discount discount_fk;       //할인
 
     //양방향
-    @OneToMany(mappedBy = "order_pk")
+    @OneToMany(mappedBy = "order_pk",fetch = FetchType.LAZY)
     private List<Order> orderList = new ArrayList<>();
 
     private String code;                //결제번호

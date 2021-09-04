@@ -1,13 +1,14 @@
 package study.shoppingmall.entity;
 
 import lombok.Data;
+import lombok.Getter;
 
 import javax.persistence.*;
 import java.sql.Blob;
 import java.time.LocalDateTime;
 
 @Entity
-@Data
+@Getter
 @Table(name = "review_photo")
 public class Review_Photo {
     //리뷰 댓글 사진

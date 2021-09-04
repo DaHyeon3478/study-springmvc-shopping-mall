@@ -1,6 +1,7 @@
 package study.shoppingmall.entity;
 
 import lombok.Data;
+import lombok.Getter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
 @Table(name = "review_board")
 public class Review_Board {
     //리뷰 댓글
@@ -22,9 +23,9 @@ public class Review_Board {
     private Users user_fk;              //주문자
 
     //양방향
-    @OneToMany(mappedBy = "commend_re_pk")
+    @OneToMany(mappedBy = "commend_re_pk",fetch = FetchType.LAZY)
     private List<Commend_Review> commend_reviews = new ArrayList<>();
-    @OneToMany(mappedBy = "re_ph_pk")
+    @OneToMany(mappedBy = "re_ph_pk",fetch = FetchType.LAZY)
     private List<Review_Photo> review_photos = new ArrayList<>();
 
     private String title;               //제목
