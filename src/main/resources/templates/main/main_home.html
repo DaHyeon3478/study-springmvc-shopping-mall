@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en kr" xmlns:th="http://www.thymeleaf.org">
+<html lang="en kr">
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="doginy">
@@ -27,32 +27,12 @@
 
     <!-- JQuery -->
     <script src="/js/jquery-3.6.0.min.js"></script>
-    <script>
-        $(function(){
-
-            //우측메뉴
-            $('#visual .rightNav').css('display','none');
-            $('#header .headerLogo').mouseover(function(){
-                $('#visual .rightNav').css('display','block');
-            });
-
-            //4단배너
-            var $duration = 200,
-                $fourimg = $('#visual .bannerFour li');
-
-            $fourimg.stop().mouseover(function(){
-                $(this).stop().animate({opacity:0.7},$duration);
-            })
-            .mouseout(function(){
-                $(this).stop().animate({opacity:1},$duration);
-            });
-        });
-    </script>
-
+    <script src="/js/jquery-ui.min.js"></script>
+    <script src="/js/main.js"></script>
 
     <!-- HTML5shiv ie6~8 -->
     <!--[if lt IE 9]>
-    <script src="js/html5shiv.min.js"></script>
+    <script src="/js/html5shiv.min.js"></script>
     <script type="text/javascript">
 			alert("지원하지 않는 브라우저입니다. 최신 브라우저로 업데이트해주세요!");
 		</script>
@@ -105,7 +85,25 @@
 <section id="visual">
     <!--//메인 슬라이드 배너 -->
     <section class="bannerSlide">
-        <img src="/img/slide.jpg" alt="슬라이드 이미지">
+        <div class="slideshow_slides">
+            <a href=""><img src="/img/slide_01.jpg" alt="slide1"></a>
+            <a href=""><img src="/img/slide_02.jpg" alt="slide2"></a>
+            <a href=""><img src="/img/slide_03.jpg" alt="slide3"></a>
+            <a href=""><img src="/img/slide_04.jpg" alt="slide4"></a>
+            <a href=""><img src="/img/slide_05.jpg" alt="slide5"></a>
+        </div>
+        <div class="slideshow_nav">
+            <a href="" class="prev">prev</a>
+            <a href="" class="next">next</a>
+        </div>
+        <div class="slideshow_indicator">
+            <!--
+            <a href="">1</a>
+            <a href="">2</a>
+            <a href="">3</a>
+            <a href="">4</a>
+            -->
+        </div>
     </section>
     <!--//4단 배너-->
     <section class="bannerFour">
@@ -377,17 +375,5 @@
         <p class="footerCopy">COPYRIGHT ⓒ <b>ONTHESHOP</b> ALL RIGHT RESERVED.</p>
     </section>
 </footer>
-< !--
-<table>
-    <tr>
-        <td>아이디</td>
-        <td>비밀번호</td>
-    </tr>
-    <tr th:each="user : ${userVO}">
-        <td th:text="${user.id}"></td>
-        <td th:text="${user.pw}"></td>
-    </tr>
-</table>
--->
 </body>
 </html>
