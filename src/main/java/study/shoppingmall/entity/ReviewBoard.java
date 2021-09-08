@@ -1,7 +1,8 @@
 package study.shoppingmall.entity;
 
-import lombok.Data;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -11,27 +12,37 @@ import java.util.List;
 @Entity
 @Getter
 @Table(name = "review_board")
-public class Review_Board {
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public class ReviewBoard {
     //리뷰 댓글
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long review_board_pk;
+    @Column(name="review_board_id")
+    private Long id;
+
     @ManyToOne @JoinColumn(name = "goods_fk", foreignKey = @ForeignKey(name = "re_board_goods_fk"))
-    private Goods goods_fk;             //상품
+    private Goods goods;                //상품
+
     @ManyToOne @JoinColumn(name = "order_fk", foreignKey = @ForeignKey(name = "re_board_order_fk"))
-    private Order order_fk;             //주문
+    private Order orders;             //주문
+
     @ManyToOne @JoinColumn(name = "user_fk", foreignKey = @ForeignKey(name = "re_board_user_fk"))
-    private Users user_fk;              //주문자
+    private Users users;              //주문자
+
 
     //양방향
     @OneToMany(mappedBy = "commend_re_pk",fetch = FetchType.LAZY)
-    private List<Commend_Review> commend_reviews = new ArrayList<>();
+    private List<Commend_Review> commendReviewArrayList = new ArrayList<>();
+
     @OneToMany(mappedBy = "re_ph_pk",fetch = FetchType.LAZY)
-    private List<Review_Photo> review_photos = new ArrayList<>();
+    private List<ReviewPhoto> reviewPhotoList = new ArrayList<>();
 
     private String title;               //제목
+
     @Column(length = 1000) //내용길이
     private String content;             //내용
-    private LocalDateTime writing_date; //작성일자
+
+    private LocalDateTime writingDate; //작성일자
+
     @Column(length = 1) //내용길이
-    private String review_board_delete;              //삭제
+    private String reviewBoardDelete;              //삭제
 }

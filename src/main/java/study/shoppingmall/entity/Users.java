@@ -37,9 +37,9 @@ public class Users {
     @OneToMany(mappedBy = "qa_board_pk")
     private List<QA_board> qa_boards = new ArrayList<>();
     @OneToMany(mappedBy = "review_board_pk")
-    private List<Review_Board> re_boards = new ArrayList<>();
+    private List<ReviewBoard> re_boards = new ArrayList<>();
     @OneToMany(mappedBy = "shopping_basket_pk")
-    private List<Shopping_Basket> shopping_baskets = new ArrayList<>();
+    private List<ShoppingBasket> shopping_baskets = new ArrayList<>();
     @OneToMany(mappedBy = "log_pk")
     private List<User_Log> user_logs = new ArrayList<>();
 

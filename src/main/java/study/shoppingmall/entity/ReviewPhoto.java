@@ -1,7 +1,8 @@
 package study.shoppingmall.entity;
 
-import lombok.Data;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Blob;
@@ -10,14 +11,18 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Table(name = "review_photo")
-public class Review_Photo {
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public class ReviewPhoto {
     //리뷰 댓글 사진
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long re_ph_pk;
+    @Column(name="review_photo_id")
+    private Long id;
+
     @ManyToOne @JoinColumn(name = "review_fk", foreignKey = @ForeignKey(name = "re_photo_re_fk"))
-    private Review_Board review_fk;     //리뷰
+    private ReviewBoard reviewBoard;     //리뷰
+
     @Lob
     private Blob photo;                 //사진
-    private LocalDateTime writing_date; //등록일자
+    private LocalDateTime writingDate; //등록일자
 
 }

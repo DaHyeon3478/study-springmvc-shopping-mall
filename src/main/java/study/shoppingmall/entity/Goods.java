@@ -30,9 +30,9 @@ public class Goods {
     @OneToMany(mappedBy = "order_pk")
     private List<Order> orders = new ArrayList<>();
     @OneToMany(mappedBy = "review_board_pk")
-    private List<Review_Board> review_boards = new ArrayList<>();
+    private List<ReviewBoard> review_boards = new ArrayList<>();
     @OneToMany(mappedBy = "shopping_basket_pk")
-    private List<Shopping_Basket> shopping_baskets = new ArrayList<>();
+    private List<ShoppingBasket> shopping_baskets = new ArrayList<>();
 
     private String goods_name;             //상품명
     private Long unit_price;              //단가

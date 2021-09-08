@@ -14,7 +14,7 @@ public class Commend_Review {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long commend_re_pk;
     @ManyToOne @JoinColumn(name = "re_fk", foreignKey = @ForeignKey(name = "commend_re_re_fk"))
-    private Review_Board re_fk;         //리뷰게시판
+    private ReviewBoard re_fk;         //리뷰게시판
     @ManyToOne @JoinColumn(name = "user_fk", foreignKey = @ForeignKey(name = "commend_re_user_fk"))
     private Users user_fk;              //유저
     private String content;             //내용

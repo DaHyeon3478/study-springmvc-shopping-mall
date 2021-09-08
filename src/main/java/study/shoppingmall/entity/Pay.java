@@ -1,7 +1,9 @@
 package study.shoppingmall.entity;
 
+import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -11,22 +13,28 @@ import java.util.List;
 @Entity
 @Getter
 @Table(name = "pay")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Pay {
     //결제
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long pay_pk;
-    @ManyToOne @JoinColumn(name = "discount_fk", foreignKey = @ForeignKey(name = "pay_discount_fk"))
-    private Discount discount_fk;       //할인
+    @Column(name="pay_id")
+    private Long id;
+
+    //할인
+    @ManyToOne
+    @JoinColumn(name = "discount_fk", foreignKey = @ForeignKey(name = "pay_discount_fk"))
+    private Discount discount;
 
     //양방향
-    @OneToMany(mappedBy = "order_pk",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "order_id",fetch = FetchType.LAZY)
     private List<Order> orderList = new ArrayList<>();
 
     private String code;                //결제번호
     private String way;                 //결제방법
     private Long money;                 //금액
-    private LocalDateTime paytime;      //시간
+    private LocalDateTime payTime;      //시간
+
     @Column(length = 1) //내용길이
-    private String pay_del;             //결제취소
+    private String payDel;             //결제취소
 
 }
