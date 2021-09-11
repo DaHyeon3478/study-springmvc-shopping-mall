@@ -25,6 +25,9 @@ public class Pay {
     @JoinColumn(name = "discount_fk", foreignKey = @ForeignKey(name = "pay_discount_fk"))
     private Discount discount;
 
+    @ManyToOne @JoinColumn(name = "pay_means_fk", foreignKey = @ForeignKey(name = "pay_means_fk"))
+    private PayMeans payMeans;          //결제방법
+
     //양방향
     @OneToMany(mappedBy = "order_id",fetch = FetchType.LAZY)
     private List<Order> orderList = new ArrayList<>();
