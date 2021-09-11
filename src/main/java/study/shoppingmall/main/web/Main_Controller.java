@@ -5,9 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import study.shoppingmall.entity.Users;
 import study.shoppingmall.main.service.Main_Service;
 
@@ -22,8 +21,17 @@ public class Main_Controller {
     @Autowired
     private final Main_Service main_service;
 
+    @RequestMapping(value="/", method= RequestMethod.GET)
+    /*public ModelAndView WelcomePage(Model model){
+        ModelAndView mav = new ModelAndView("redirect:/main");
+        return mav;
+    }*/
+    public String WelcomePage(Model model){
+        return "index";
+    }
+
     //로그인후 메인 select
-    @PostMapping("/main_home")
+    @GetMapping("/main_home")
     public String Main_home (Model model ){
         List<Users> userVO = main_service.find_users();
         model.addAttribute("userVO",userVO);
