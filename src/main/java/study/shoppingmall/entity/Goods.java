@@ -1,6 +1,7 @@
 package study.shoppingmall.entity;
 
 import lombok.Data;
+import lombok.Getter;
 
 import javax.persistence.*;
 import java.sql.Blob;
@@ -9,49 +10,81 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
 @Table(name = "goods")
 public class Goods {
     //상품
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long goods_pk;
-    @ManyToOne @JoinColumn(name = "user_fk", foreignKey = @ForeignKey(name = "goods_user_fk"))
-    private Users user_fk;                 //사용자fk
-    @ManyToOne @JoinColumn(name = "category_fk", foreignKey = @ForeignKey(name = "goods_category_fk"))
-    private Category category_fk;        //카테고리fk
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "goods_pk")
+    private Long goodsPk;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_fk", foreignKey = @ForeignKey(name = "goods_user_fk"))
+    @Column(name = "user_fk")
+    private Users userFk;                 //사용자fk
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_fk", foreignKey = @ForeignKey(name = "goods_category_fk"))
+    @Column(name = "category_fk")
+    private Category categoryFk;        //카테고리fk
 
     //양방향
-    @OneToMany(mappedBy = "call_pk")
-    private List<Call_dibs> call_dibs = new ArrayList<>();
-    @OneToMany(mappedBy = "discount_pk")
+    @OneToMany(mappedBy = "callPk")
+    private List<Call_dibs> callDibs = new ArrayList<>();
+    @OneToMany(mappedBy = "discountPk")
     private List<Discount> discounts = new ArrayList<>();
-    @OneToMany(mappedBy = "goods_photos_pk")
-    private List<Goods_Photos> goods_photos = new ArrayList<>();
-    @OneToMany(mappedBy = "order_pk")
+    @OneToMany(mappedBy = "goods_photosPk")
+    private List<Goods_Photos> goodsPhotos = new ArrayList<>();
+    @OneToMany(mappedBy = "orderPk")
     private List<Order> orders = new ArrayList<>();
-    @OneToMany(mappedBy = "review_board_pk")
-    private List<Review_Board> review_boards = new ArrayList<>();
-    @OneToMany(mappedBy = "shopping_basket_pk")
-    private List<Shopping_Basket> shopping_baskets = new ArrayList<>();
+    @OneToMany(mappedBy = "review_boardPk")
+    private List<Review_Board> reviewBoards = new ArrayList<>();
+    @OneToMany(mappedBy = "shopping_basketPk")
+    private List<Shopping_Basket> shoppingBaskets = new ArrayList<>();
 
-    private String goods_name;             //상품명
-    private Long unit_price;              //단가
-    private Long stock_count;             //재고수량
-    private LocalDateTime writing_date;   //등록일
-    @Lob
-    private Blob top_photo;               //대표사진
-    @Lob
-    private Blob explanation_photo;       //제품설명사진
+    //연관관계 편의 메소드
+    public void ChangeUsers(Users users){
+        this.userFk = users;
+        users.getGoods().add(this);
+    }
+    public void ChangeCategory(Category category){
+        this.categoryFk = category;
+        category.getGoods().add(this);
+    }
+
+    @Column(name = "goods_name")
+    private String goodsName;             //상품명
+    @Column(name = "unit_price")
+    private Long unitPrice;              //단가
+    @Column(name = "stock_count")
+    private Long stockCount;             //재고수량
+    @Column(name = "writing_date")
+    private LocalDateTime writingDate;   //등록일
+
+    @Lob  @Column(name = "top_photo")
+    private Blob topPhoto;               //대표사진
+    @Lob  @Column(name = "explanation_photo")
+    private Blob explanationPhoto;       //제품설명사진
+
+    @Column(name = "explanation")
     private String explanation;           //제품설명
-    private String option_1;              //상품옵션
-    private String option_2;
-    private String option_3;
-    private String option_4;
-    private String option_5;
+    @Column(name = "option_1")
+    private String option1;              //상품옵션
+    @Column(name = "option_2")
+    private String option2;
+    @Column(name = "option_3")
+    private String option3;
+    @Column(name = "option_4")
+    private String option4;
+    @Column(name = "option_5")
+    private String option5;
+    @Column(name = "ip")
     private String ip;                      //아이피
-    private String announcement_setting;    //공지설정
+    @Column(name = "announcement_setting")
+    private String announcementSetting;    //공지설정
+    @Column(name = "writingCount")
     private Long writing_count;             //읽은수
+    @Column(name = "recommendationCount")
     private Long recommendation_count;      //추천수
-    @Column(length = 1) //내용길이
-    private String goods_delete;              //삭제
+    @Column(length = 1, name = "goods_delete") //내용길이
+    private String goodsDelete;              //삭제
 }
