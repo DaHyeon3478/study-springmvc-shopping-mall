@@ -13,7 +13,7 @@ import java.util.List;
 public class Order {
     //주문
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long order_pk;
+    private Long orderPk;
 
     @ManyToOne @JoinColumn(name = "goods_fk", foreignKey = @ForeignKey(name = "order_goods_fk"))
     private Goods goods_fk;                 //상품

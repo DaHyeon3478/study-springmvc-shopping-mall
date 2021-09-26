@@ -33,6 +33,24 @@ public class SampleServiceImpl implements SampleService {
     @Transactional //쓰기용
     public Long join(SampleTable sample){
         log.info("SampleServiceImpl join.."+ sample);
+
+        //암호화 대칭키
+        AES128 aes128 = new AES128("1234567891011120");
+        String enc = null;
+        String dec = null;
+        try {
+            enc = aes128.encrypt(sample.getSamplePw());
+            dec = aes128.decrypt(enc);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        log.info(enc);
+        log.info(dec);
+        if(enc == null && dec == null){
+            return  -1L;
+        }
+
         STRepository.save(sample);
         return sample.getSamplePk();
     }

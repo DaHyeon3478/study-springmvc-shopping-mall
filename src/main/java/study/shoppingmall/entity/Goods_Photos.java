@@ -18,7 +18,7 @@ public class Goods_Photos {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "goods_fk", foreignKey = @ForeignKey(name = "goods_photos_goods_fk"))
-    @Column(name = "goods_fk")
+   // @Column(name = "goods_fk")
     private Goods goodsFk;
 
     @Lob @Column(name = "photo")

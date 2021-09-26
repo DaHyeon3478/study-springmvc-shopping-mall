@@ -19,12 +19,12 @@ public class Goods {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_fk", foreignKey = @ForeignKey(name = "goods_user_fk"))
-    @Column(name = "user_fk")
+    //@Column(name = "user_fk") JoinColumn과 같은의미
     private Users userFk;                 //사용자fk
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_fk", foreignKey = @ForeignKey(name = "goods_category_fk"))
-    @Column(name = "category_fk")
+    //@Column(name = "category_fk")
     private Category categoryFk;        //카테고리fk
 
     //양방향
@@ -32,7 +32,7 @@ public class Goods {
     private List<Call_dibs> callDibs = new ArrayList<>();
     @OneToMany(mappedBy = "discountPk")
     private List<Discount> discounts = new ArrayList<>();
-    @OneToMany(mappedBy = "goods_photosPk")
+    @OneToMany(mappedBy = "goodsPhotosPk")
     private List<Goods_Photos> goodsPhotos = new ArrayList<>();
     @OneToMany(mappedBy = "orderPk")
     private List<Order> orders = new ArrayList<>();

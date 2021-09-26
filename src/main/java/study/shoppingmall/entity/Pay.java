@@ -13,7 +13,7 @@ import java.util.List;
 public class Pay {
     //결제
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long pay_pk;
+    private Long payPk;
     @ManyToOne @JoinColumn(name = "discount_fk", foreignKey = @ForeignKey(name = "pay_discount_fk"))
     private Discount discount_fk;       //할인
 

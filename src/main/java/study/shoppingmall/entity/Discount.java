@@ -15,12 +15,12 @@ public class Discount {
     //할인
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "discountPk")
-    private Long discount_pk;
+    @Column(name = "discount_pk")
+    private Long discountPk;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "goods_fk", foreignKey = @ForeignKey(name = "discount_goods_fk"))
-    @Column(name = "goodsFk")
+    //@Column(name = "goods_fk")
     private Goods goods_fk;              //상품
 
     //양방향

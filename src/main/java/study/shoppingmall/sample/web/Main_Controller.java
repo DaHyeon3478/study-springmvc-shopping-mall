@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import study.shoppingmall.entity.sample.SampleTable;
-import study.shoppingmall.sample.domin.SampleVo;
 import study.shoppingmall.sample.service.SampleService;
 
 import java.util.List;

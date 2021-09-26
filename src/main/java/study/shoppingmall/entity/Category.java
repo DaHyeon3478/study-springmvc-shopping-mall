@@ -17,7 +17,7 @@ public class Category {
     //양방향
     @OneToMany(mappedBy = "ann_pk")
     private List<Announcement_Board> ann_board = new ArrayList<>();
-    @OneToMany(mappedBy = "goods_pk")
+    @OneToMany(mappedBy = "goodsPk") //자바 필드명
     private List<Goods> goods = new ArrayList<>();
 
     private String category_name;   //카테고리명

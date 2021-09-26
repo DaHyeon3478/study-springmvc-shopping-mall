@@ -18,12 +18,12 @@ public class Call_dibs {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "goods_fk", foreignKey = @ForeignKey(name = "call_dibs_goods_fk"))
-    @Column(name = "goods_fk")
+    //@Column(name = "goods_fk")
     private Goods goodsFk;                 //상품
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_fk", foreignKey = @ForeignKey(name = "call_dibs_user_fk"))
-    @Column(name = "user_fk")
+    //@Column(name = "user_fk")
     private Users userFk;                  //유저
 
     @Column(name = "writingDate")
